@@ -7,9 +7,47 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <div class="app container my-5">
-      <h1>Hello world</h1>
-      <p>Happy {{ day }}! It's {{ now.getHours() }}:{{ now.getMinutes() }}.</p>
+      <header class="jumbotron text-center">
+          <div class="container">
+            <h1>Qui est le député européen français qui vous ressemble le plus ?</h1>
+          </div>
+      </header>
+    <div class="app container my-7">
+      <h1></h1>
+      <p>Nous sommes le {{ day }} {{ now.getDate() }} {{ month }} {{ now.getFullYear() }}. {{ intro }}
+      </p>
+    </div>
+    <div id="app" class="container">
+
+      <!-- Header -->
+
+  
+      <!-- Carte principale -->
+      <main class="d-flex align-items-center justify-content-md-center" v-cloak>
+        <div class="card" v-if="current < quiz.length" >
+  
+          <!-- Carte lorsqu'il y a des questions -->
+          <div class="card-body">
+            <h4 class="card-title">{{ step.question }}</h4>
+            <form>
+            <!-- Boutons pour les QCM -->
+            <button v-if="step.choices" v-for="choice in step.choices" class="btn btn-lg btn-block"  v-on:click="submitButton(choice)">{{ choice }}</button>
+            <input type="text" ref="textInput" v-if="!step.choices" class="form-control"   placeholder="Écrivez votre réponse">
+            <button class="btn btn-dark btn-lg btn-block" v-if="!step.choices" @click.prevent="getFormValues()">Prochaine question</button>
+          </form>
+          <div class="card-body" v-if="current == quiz.length">
+              <h4 class="card-title">Vous avez terminé !</h4>
+              <p class="card-text">Votre score est de {{ score }} </p>
+            </div>
+          </div>
+  
+          <!-- Carte lorsque toutes les questions ont été complétées -->
+          <div class="card-body" v-if="current == quiz.length">
+            <h4 class="card-title">Vous avez terminé !</h4>
+            <p class="card-text">Affiche le score ici !</p>
+          </div>
+        </div>
+      </main>
     </div>
 
     <script src="vendors/vue.min.js"></script>
