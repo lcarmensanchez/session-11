@@ -18,39 +18,58 @@
       </p>
     </div>
     <div id="app" class="container">
-
-      <!-- Header -->
-
   
       <!-- Carte principale -->
       <main class="d-flex align-items-center justify-content-md-center" v-cloak>
-        <div class="card" v-if="current < quiz.length" >
+        <div class="card">
   
           <!-- Carte lorsqu'il y a des questions -->
-          <div class="card-body">
+          <div class="card-body" v-if="current < quiz.length">
             <h4 class="card-title">{{ step.question }}</h4>
-            <form>
-            <!-- Boutons pour les QCM -->
-            <button v-if="step.choices" v-for="choice in step.choices" class="btn btn-lg btn-block"  v-on:click="submitButton(choice)">{{ choice }}</button>
-            <input type="text" ref="textInput" v-if="!step.choices" class="form-control"   placeholder="Écrivez votre réponse">
-            <button class="btn btn-dark btn-lg btn-block" v-if="!step.choices" @click.prevent="getFormValues()">Prochaine question</button>
-          </form>
-          <div class="card-body" v-if="current == quiz.length">
-              <h4 class="card-title">Vous avez terminé !</h4>
-              <p class="card-text">Votre score est de {{ score }} </p>
-            </div>
-          </div>
   
-          <!-- Carte lorsque toutes les questions ont été complétées -->
-          <div class="card-body" v-if="current == quiz.length">
-            <h4 class="card-title">Vous avez terminé !</h4>
-            <p class="card-text">Affiche le score ici !</p>
+            <!-- Boutons pour les QCM -->
+            <button v-if="step.type == 'choice'" v-for="choice in step.choices" class="btn btn-lg btn-block" v-on:click="submitButton(choice)">{{ choice }}</button>
+  
+            <!-- Champ de saisie pour les réponses libres -->
+            <input type="text" ref="textInput" v-if="step.type == 'text'" class="form-control" placeholder="Écrivez votre réponse" v-on:keyup.enter="submitText()">
+            <button class="btn btn-dark btn-lg btn-block" v-if="step.type == 'text'" v-on:click="submitText()">Prochaine question</button>
+            <input type="number" ref="nbInput" v-if="step.type == 'number'" class="form-control" placeholder="Écrivez votre réponse" v-on:keyup.enter="submitNumber()">
+            <button class="btn btn-dark btn-lg btn-block" v-if="step.type == 'number'" v-on:click="submitNumber()">Prochaine question</button>
+  
+            <!-- Résultat -->
           </div>
+          <div class="card-body col-10" v-if="current == quiz.length">
+            <h4 class="card-title">Bravo {{ lector_name }}, vous avez terminé !</h4>
+            <p class="card-text"><span v-if="match_gender == 'H'">Le député</span><span v-if="match_gender == 'F'">La députée</span> qui vous correspond le plus est {{ match_name }} ({{ match_party }}) </p>
+            <p class="card-text"><span v-if="match_gender == 'H'">Il est né</span><span v-if="match_gender == 'F'">Elle est née</span> le {{ match_date_birth }} à {{ match_place_birth }}.</p>
+            <p class="card-text"><span v-if="match_gender == 'H'">Il est eurodéputé</span><span v-if="match_gender == 'F'">Elle est eurodéputée</span> depuis {{ match_eurodep_depuis }} pour la circonscription {{ match_circo }}.</p>
+          </div>
+        </div>
+        <div id="data" v-if="current == quiz.length">
+            <p>
+              <span v-if="lector_gender == 'femme'">Vous êtes une femme comme 43,24%</span>
+              <span v-if="lector_gender == 'homme'">Vous êtes un homme comme 56,75%</span>
+              des députés français au Parlement européen. 
+            </p>
+            <p>
+              Vous avez le même prénom que {{ same_firstname.length }} eurodéputé<span v-if="lector_gender == 'femme'">e</span><span v-if="same_firstname.length > 1">s</span> français<span v-if="lector_gender == 'femme'">e</span><span v-if="same_firstname.length > 1">s</span>
+              <span v-if="same_firstname.length > 0">:</span>
+              <span v-if="same_firstname.length == 0">.</span>
+              <span v-for="firstname in same_firstname" > {{ firstname }}</span>
+            </p>
+            <!-- <p>
+                Vous êtes né<span v-if="lector_gender == 'femme'">e</span> la même année que <span v-if="same_birthdate.length > 1">s</span> {{ same_birthdate.length }} eurodéputé(e)<span v-if="same_birthdate.length > 1">s</span> français(e)<span v-if="same_birthdate.length > 1">s</span>
+                <span v-if="same_birthdate.length > 0">:</span>
+                <span v-if="same_birthdate.length == 0">.</span>
+                <span v-for="firstname in same_birthdate" > {{ firstname }}</span>
+              </p> -->
+
         </div>
       </main>
     </div>
 
     <script src="vendors/vue.min.js"></script>
+    <script src="quiz.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
