@@ -45,27 +45,27 @@
             <p class="card-text"><span v-if="match_gender == 'H'">Il est eurodéputé</span><span v-if="match_gender == 'F'">Elle est eurodéputée</span> depuis {{ match_eurodep_depuis }} pour la circonscription {{ match_circo }}.</p>
           </div>
         </div>
-        <div id="data" v-if="current == quiz.length">
-            <p>
-              <span v-if="lector_gender == 'femme'">Vous êtes une femme comme 43,24%</span>
-              <span v-if="lector_gender == 'homme'">Vous êtes un homme comme 56,75%</span>
-              des députés français au Parlement européen. 
-            </p>
-            <p>
-              Vous avez le même prénom que {{ same_firstname.length }} eurodéputé<span v-if="lector_gender == 'femme'">e</span><span v-if="same_firstname.length > 1">s</span> français<span v-if="lector_gender == 'femme'">e</span><span v-if="same_firstname.length > 1">s</span>
-              <span v-if="same_firstname.length > 0">:</span>
-              <span v-if="same_firstname.length == 0">.</span>
-              <span v-for="firstname in same_firstname" > {{ firstname }}</span>
-            </p>
-            <!-- <p>
-                Vous êtes né<span v-if="lector_gender == 'femme'">e</span> la même année que <span v-if="same_birthdate.length > 1">s</span> {{ same_birthdate.length }} eurodéputé(e)<span v-if="same_birthdate.length > 1">s</span> français(e)<span v-if="same_birthdate.length > 1">s</span>
-                <span v-if="same_birthdate.length > 0">:</span>
-                <span v-if="same_birthdate.length == 0">.</span>
-                <span v-for="firstname in same_birthdate" > {{ firstname }}</span>
-              </p> -->
-
-        </div>
       </main>
+      <div class="d-flex align-items-center justify-content-md-center">
+          <div id="data" class="card-body col-10" v-if="current == quiz.length">
+              <h4 class="card-title">En savoir plus</h4>
+              <p class="card-text">
+                <span v-if="lector_gender == 'femme'">Vous êtes une femme comme 43,24%</span>
+                <span v-if="lector_gender == 'homme'">Vous êtes un homme comme 56,75%</span>
+                des députés français au Parlement européen. 
+              </p>
+              <p class="card-text">
+                Vous avez le même prénom que {{ same_firstname.length }} eurodéputé<span v-if="lector_gender == 'femme'">e</span><span v-if="same_firstname.length > 1">s</span> français<span v-if="lector_gender == 'femme'">e</span><span v-if="same_firstname.length > 1">s</span><span v-if="same_firstname.length > 0"> : </span><span v-if="same_firstname.length == 0">.</span>
+                <span v-for="firstname in same_firstname" > {{ firstname }}</span>
+              </p>
+              <!-- <p>
+                  Vous êtes né<span v-if="lector_gender == 'femme'">e</span> la même année que <span v-if="same_birthdate.length > 1">s</span> {{ same_birthdate.length }} eurodéputé(e)<span v-if="same_birthdate.length > 1">s</span> français(e)<span v-if="same_birthdate.length > 1">s</span>
+                  <span v-if="same_birthdate.length > 0">:</span>
+                  <span v-if="same_birthdate.length == 0">.</span>
+                  <span v-for="firstname in same_birthdate" > {{ firstname }}</span>
+                </p> -->
+              </div>
+          </div>
     </div>
 
     <script src="vendors/vue.min.js"></script>
