@@ -13,7 +13,7 @@ header h1 {
     padding-top: 35px;
     padding-bottom: 35px;
     font-family: MarrSans-Medium;
-    font-size: 45px;
+    font-size: 40px;
     color: #FFFFFF;
     letter-spacing: 0;
 }
@@ -35,6 +35,12 @@ header h1 {
     padding: 20px;
 }
 
+.card-text {
+    font-family: TheAntiquaB-W5Plain;
+    font-size: 17px;
+
+}
+
 input {
     min-height: 70px;
 }
@@ -44,6 +50,7 @@ input {
 }
 
 .card-header {
+    margin-top:20px;
     margin-bottom: 10px;
     text-align: center;
 }

@@ -18,7 +18,8 @@ var app = new Vue({
   el: '#app',
   data: {
     quiz: quiz, 
-    current: 0, 
+    current: 0,
+    accept:0, 
     answers: []
   },
   computed: {
@@ -28,14 +29,34 @@ var app = new Vue({
   },
   methods: {
     submitButton: function submitButton (answer) {
-      this.answers.push(answer)
-      this.current++
+      if (answer == "Non") {
+        this.accept = 0;
+        document.getElementById("introPart").style.display = "none";
+        this.current = this.quiz.length
+      }
+      else if (answer == "Oui") {
+        this.accept = 1;
+        document.getElementById("introPart").style.display = "none";
+        this.current++
+      }
+      else {
+        this.answers.push(answer)
+        this.current++
+      }
       if (this.current == this.quiz.length){
         tab = calculateMostAdapted(this.answers)
         num_match = tab[0]
         this.same_firstname = tab[2]
-        this.lector_name = this.answers[1]
-        this.lector_gender = this.answers[0]
+        this.same_circo = tab[3]
+        this.same_party = tab[4]
+        this.same_date_birth = tab[5]
+        this.similar_date_birth = tab[6]
+        console.log(this.similar_date_birth)
+        this.reader_name = this.answers[1]
+        this.reader_gender = this.answers[0]
+        this.reader_circo = this.answers[2]
+        this.reader_party = this.answers[4]
+        this.reader_date_birth = this.answers[3]
         this.match_name = liste_dep[num_match].name
         this.match_party = liste_dep[num_match].national_party
         this.match_circo = liste_dep[num_match].circo
