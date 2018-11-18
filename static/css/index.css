@@ -1,0 +1,50 @@
+
+
+.jumbotron {
+    background-color: #222731  !important;
+    border: 1px solid #979797;
+    border-top: none;
+    border-radius: 0 !important;
+    overflow: visible;
+    text-align: center;
+}
+
+header h1 {
+    font-family: MarrSans-Medium;
+    font-size: 50px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+.intro p {
+    opacity: 0.9;
+    font-family: TheAntiquaB-W5Plain;
+    font-size: 18px;
+    color: #222731;
+    letter-spacing: 0;
+    padding-bottom: 10px;
+}
+
+.card-header, .btn, input {
+    font-family: TheAntiquaB-W5Plain;
+    font-size: 18px;
+}
+
+.card {
+    border: none;
+}
+
+.card-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.question .choice, .question .next {
+    background-color: #e7e7e7; 
+    color: #222731; 
+}
+
+.question .choice:hover {
+    background-color: #008CBA;
+    color: white;
+}

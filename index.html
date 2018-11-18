@@ -4,37 +4,43 @@
     <meta charset="utf-8">
     <title>Session 11</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="static/css/index.css">
   </head>
   <body>
       <header class="jumbotron text-center">
           <div class="container">
-            <h1>Qui est le député européen français qui vous ressemble le plus ?</h1>
+            <h1>Y a-t-il un eurodéputé français qui vous ressemble ?</h1>
           </div>
       </header>
-    <div class="app container my-7">
-      <h1></h1>
-      <p>Nous sommes le {{ day }} {{ now.getDate() }} {{ month }} {{ now.getFullYear() }}. {{ intro }}
-      </p>
-    </div>
+    
+    <section class="container">
+      <div class="intro row align-items-center justify-content-md-center">
+        <p class="col-lg-10 col-sm-12 col-12">Nous sommes le {{ day }} {{ now.getDate() }} {{ month }} {{ now.getFullYear() }}. {{ intro }}
+        </p>
+      </div>
+    </section>
+
     <div id="app" class="container">
   
       <!-- Carte principale -->
-      <main class="d-flex align-items-center justify-content-md-center" v-cloak>
-        <div class="card">
-  
+      <main class="d-flex align-items-center justify-content-md-center row" v-cloak>
+        <div class="col-lg-6 col-sm-12 col-12">
+
           <!-- Carte lorsqu'il y a des questions -->
-          <div class="card-body" v-if="current < quiz.length">
-            <h4 class="card-title">{{ step.question }}</h4>
+          <div class="card question" v-if="current < quiz.length">
+              <div class="card-header text-white bg-dark">
+                  {{ step.question }}
+              </div>
+
   
             <!-- Boutons pour les QCM -->
-            <button v-if="step.type == 'choice'" v-for="choice in step.choices" class="btn btn-lg btn-block" v-on:click="submitButton(choice)">{{ choice }}</button>
+            <button v-if="step.type == 'choice'" v-for="choice in step.choices" class="btn btn-lg btn-block choice rounded" v-on:click="submitButton(choice)">{{ choice }}</button>
   
             <!-- Champ de saisie pour les réponses libres -->
             <input type="text" ref="textInput" v-if="step.type == 'text'" class="form-control" placeholder="Écrivez votre réponse" v-on:keyup.enter="submitText()">
-            <button class="btn btn-dark btn-lg btn-block" v-if="step.type == 'text'" v-on:click="submitText()">Prochaine question</button>
+            <button class="btn btn-lg btn-block next" v-if="step.type == 'text'" v-on:click="submitText()">Prochaine question</button>
             <input type="number" ref="nbInput" v-if="step.type == 'number'" class="form-control" placeholder="Écrivez votre réponse" v-on:keyup.enter="submitNumber()">
-            <button class="btn btn-dark btn-lg btn-block" v-if="step.type == 'number'" v-on:click="submitNumber()">Prochaine question</button>
+            <button class="btn btn-lg btn-block next" v-if="step.type == 'number'" v-on:click="submitNumber()">Prochaine question</button>
   
             <!-- Résultat -->
           </div>
@@ -67,9 +73,12 @@
               </div>
           </div>
     </div>
+    
 
     <script src="vendors/vue.min.js"></script>
-    <script src="quiz.js"></script>
-    <script src="index.js"></script>
+    <script src="static/js/quiz.js"></script>
+    <script src="static/js/europeandep.js"></script>
+    <script src="static/js/utilities.js"></script>
+    <script src="static/js/index.js"></script>
   </body>
 </html>
