@@ -5,7 +5,8 @@ var vm = new Vue({
     var days = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi']
     var months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
     return  {
-      intro: "Et il nous reste seulement quelque mois avant d'élire nos députés européens. En France, le scrutin aura lieu le 26 mai : 79 personnes seront élues, soit cinq de plus qu'actuellement. D'autres nouveautés sont à noter : désormais les députés européens seront élus à l'échelle nationale - et non plus dans des circonscriptions régionales, comme l’avait instauré une loi de 2003 pour « favoriser l’ancrage territorial des élus », souvent critiqués pour leur éloignement des citoyens. Qu’en est-il actuellement ? Quel eurodéputé français vous ressemble le plus ? Découvrez la réponse en répondant à quelques questions (rien n’est enregistré).",
+      intro: "Et il nous reste seulement quelque mois avant d'élire nos députés européens. En France, le scrutin aura lieu le 26 mai : 79 personnes seront élues, soit cinq de plus qu'actuellement. D'autres nouveautés sont à noter : désormais les députés européens seront élus à l'échelle nationale - et non plus dans des circonscriptions régionales, comme l’avait instauré une loi de 2003 pour « favoriser l’ancrage territorial des élus », souvent critiqués pour leur éloignement des citoyens.",
+      introquestion:"Qu’en est-il actuellement ? Quel eurodéputé français vous ressemble le plus ? Découvrez la réponse en répondant à quelques questions (rien n’est enregistré).",
       now: now,
       day: days[now.getDay()],
       month: months[now.getMonth()]

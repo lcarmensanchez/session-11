@@ -13,7 +13,7 @@ header h1 {
     padding-top: 35px;
     padding-bottom: 35px;
     font-family: MarrSans-Medium;
-    font-size: 50px;
+    font-size: 45px;
     color: #FFFFFF;
     letter-spacing: 0;
 }
@@ -21,15 +21,17 @@ header h1 {
 .intro p {
     opacity: 0.9;
     font-family: TheAntiquaB-W5Plain;
-    font-size: 19.5px;
+    font-size: 16px;
     color: #222731;
     letter-spacing: 0;
     padding-bottom: 10px;
+    margin:0 auto;
+
 }
 
 .card-header, .btn, input {
     font-family: TheAntiquaB-W5Plain;
-    font-size: 19.5px;
+    font-size: 17px;
     padding: 20px;
 }
 
@@ -52,6 +54,11 @@ input {
     color: #222731; 
 }
 
+.toCenter {
+    margin: 0 auto;
+}
+
+
 .question .choice:hover {
     background-color: #008CBA;
     color: white;
@@ -59,6 +66,7 @@ input {
 
 #app {
     margin-top: 20px;
+    text-align: center;
 }
 
 input[type="color"],
