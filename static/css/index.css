@@ -10,6 +10,8 @@
 }
 
 header h1 {
+    padding-top: 35px;
+    padding-bottom: 35px;
     font-family: MarrSans-Medium;
     font-size: 50px;
     color: #FFFFFF;
@@ -19,7 +21,7 @@ header h1 {
 .intro p {
     opacity: 0.9;
     font-family: TheAntiquaB-W5Plain;
-    font-size: 18px;
+    font-size: 19.5px;
     color: #222731;
     letter-spacing: 0;
     padding-bottom: 10px;
@@ -27,7 +29,12 @@ header h1 {
 
 .card-header, .btn, input {
     font-family: TheAntiquaB-W5Plain;
-    font-size: 18px;
+    font-size: 19.5px;
+    padding: 20px;
+}
+
+input {
+    height: 70px;
 }
 
 .card {
@@ -40,6 +47,7 @@ header h1 {
 }
 
 .question .choice, .question .next {
+    margin-top:20px;
     background-color: #e7e7e7; 
     color: #222731; 
 }
@@ -47,4 +55,8 @@ header h1 {
 .question .choice:hover {
     background-color: #008CBA;
     color: white;
+}
+
+#app {
+    margin-top: 20px;
 }
