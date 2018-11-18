@@ -7,7 +7,7 @@ function replaceSpec(Texte){
   function replaceByGroup(choice){
     if (choice == "La France Insoumise / Parti communiste")
       nbGroup = 1;
-    else if (choice == "Europe Écologie / Génération.s, le mouvement")
+    else if (choice == "Europe Écologie / Génération.s")
       nbGroup = 2;
     else if (choice == "Parti socialiste / Parti radical")
       nbGroup = 3;
@@ -15,7 +15,7 @@ function replaceSpec(Texte){
       nbGroup = 4;
     else if (choice == "Les Républicains et apparentés")
       nbGroup = 5;
-    else if (choice == "Rassemblement national / Les Patriotes / Debout la France / Apparentés")
+    else if (choice == "Rassemblement national / Les Patriotes")
       nbGroup =  6;
     else
       nbGroup = 7;
