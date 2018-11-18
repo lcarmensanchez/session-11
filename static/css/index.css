@@ -35,6 +35,9 @@ header h1 {
     padding: 20px;
 }
 
+input {
+    min-height: 70px;
+}
 
 .card {
     border: none;
