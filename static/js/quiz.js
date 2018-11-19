@@ -1,9 +1,9 @@
 var quiz = [
-    {
-      question: "C'est parti ?",
-      type: "choice",
-      choices: ["Oui", "Non"],
-    },
+    // {
+    //   question: "C'est parti ?",
+    //   type: "choice",
+    //   choices: ["Oui", "Non"],
+    // },
     {
       question: "Quel est votre genre ?",
       type: "choice",

@@ -1,4 +1,6 @@
-
+#card_question {
+    display:none;
+}
 
 .jumbotron {
     background-color: #222731  !important;
@@ -29,6 +31,11 @@ header h1 {
 
 }
 
+#app {
+    margin-bottom: 20px;
+
+}
+
 .card-header, .btn, input {
     font-family: TheAntiquaB-W5Plain;
     font-size: 17px;
@@ -55,7 +62,7 @@ input {
     text-align: center;
 }
 
-.question .choice, .question .next {
+.question .choice, .question .next, .start {
     margin-top:20px;
     background-color: #e7e7e7; 
     color: #222731; 
@@ -66,7 +73,7 @@ input {
 }
 
 
-.question .choice:hover {
+.question .choice:hover, .start:hover {
     background-color: #008CBA;
     color: white;
 }
@@ -94,3 +101,4 @@ select:focus,
 textarea {
   font-size: 16px;
 }
+

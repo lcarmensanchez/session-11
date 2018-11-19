@@ -19,7 +19,7 @@ var app = new Vue({
   data: {
     quiz: quiz, 
     current: 0,
-    accept:0, 
+    // accept:0, 
     answers: []
   },
   computed: {
@@ -28,21 +28,29 @@ var app = new Vue({
     }
   },
   methods: {
+    start: function start(){
+      document.getElementById("card_question").style.display = "block";
+      document.getElementById("introPart").style.display = "none";
+      document.getElementById("start").style.display = "none";
+    } ,
     submitButton: function submitButton (answer) {
-      if (answer == "Non") {
-        this.accept = 0;
-        document.getElementById("introPart").style.display = "none";
-        this.current = this.quiz.length
-      }
-      else if (answer == "Oui") {
-        this.accept = 1;
-        document.getElementById("introPart").style.display = "none";
-        this.current++
-      }
-      else {
-        this.answers.push(answer)
-        this.current++
-      }
+      // if (answer == "Non") {
+      //   this.accept = 0;
+      //   document.getElementById("introPart").style.display = "none";
+      //   this.current = this.quiz.length
+      // }
+      // else if (answer == "Oui") {
+      //   this.accept = 1;
+      //   document.getElementById("introPart").style.display = "none";
+      //   this.current++
+      // }
+      // else {
+      //   this.answers.push(answer)
+      //   this.current++
+      // }
+
+      this.answers.push(answer)
+      this.current++
       if (this.current == this.quiz.length){
         tab = calculateMostAdapted(this.answers)
         num_match = tab[0]
@@ -51,7 +59,6 @@ var app = new Vue({
         this.same_party = tab[4]
         this.same_date_birth = tab[5]
         this.similar_date_birth = tab[6]
-        console.log(this.similar_date_birth)
         this.reader_name = this.answers[1]
         this.reader_gender = this.answers[0]
         this.reader_circo = this.answers[2]
