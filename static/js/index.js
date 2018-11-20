@@ -19,7 +19,6 @@ var app = new Vue({
   data: {
     quiz: quiz, 
     current: 0,
-    // accept:0, 
     answers: []
   },
   computed: {
@@ -32,23 +31,8 @@ var app = new Vue({
       document.getElementById("card_question").style.display = "block";
       document.getElementById("introPart").style.display = "none";
       document.getElementById("start").style.display = "none";
-    } ,
+    },
     submitButton: function submitButton (answer) {
-      // if (answer == "Non") {
-      //   this.accept = 0;
-      //   document.getElementById("introPart").style.display = "none";
-      //   this.current = this.quiz.length
-      // }
-      // else if (answer == "Oui") {
-      //   this.accept = 1;
-      //   document.getElementById("introPart").style.display = "none";
-      //   this.current++
-      // }
-      // else {
-      //   this.answers.push(answer)
-      //   this.current++
-      // }
-
       this.answers.push(answer)
       this.current++
       if (this.current == this.quiz.length){
