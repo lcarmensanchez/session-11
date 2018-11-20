@@ -2,6 +2,10 @@
     display:none;
 }
 
+.invisible {
+    display:none;
+}
+
 .jumbotron {
     background-color: #222731  !important;
     border: 1px solid #979797;
@@ -62,10 +66,18 @@ input {
     text-align: center;
 }
 
-.question .choice, .question .next, .start {
+.choice, .next, .start {
     margin-top:20px;
     background-color: #e7e7e7; 
     color: #222731;
+}
+
+.maj {
+text-transform: uppercase;
+font-Weight: Bold;
+}
+.data {
+   text-align:left !important;
 }
 
 button, input  {
@@ -78,7 +90,7 @@ button, input  {
 }
 
 
-.question .choice:hover, .start:hover {
+.choice:hover, .start:hover {
     background-color: #008CBA;
     color: white;
 }

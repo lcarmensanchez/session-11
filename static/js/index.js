@@ -32,41 +32,48 @@ var app = new Vue({
       document.getElementById("introPart").style.display = "none";
       document.getElementById("start").style.display = "none";
     },
+    displayNames: function displayNames(index){
+      el = document.getElementById("accordion" + String(index));
+      button = document.getElementById("accordion" + String(index) + "-button");
+      if (el.classList.contains("invisible")){
+        el.classList.remove("invisible");
+        button.innerHTML = "Cacher leurs noms";
+      }
+      else {
+        el.classList.add("invisible");
+        button.innerHTML = "Montrer leurs noms";
+      }
+    },
     submitButton: function submitButton (answer) {
-      this.answers.push(answer)
-      this.current++
+      this.answers.push(answer);
+      this.current++;
       if (this.current == this.quiz.length){
-        tab = calculateMostAdapted(this.answers)
-        num_match = tab[0]
+        tab = calculateMostAdapted(this.answers);
+        num_match = tab[0];
         this.same_firstname = tab[2]
         this.same_circo = tab[3]
         this.same_party = tab[4]
         this.same_date_birth = tab[5]
         this.similar_date_birth = tab[6]
-        this.reader_name = this.answers[1]
-        this.reader_gender = this.answers[0]
-        this.reader_circo = this.answers[2]
-        this.reader_party = this.answers[4]
-        this.reader_date_birth = this.answers[3]
-        this.match_name = liste_dep[num_match].name
-        this.match_party = liste_dep[num_match].national_party
-        this.match_circo = liste_dep[num_match].circo
-        this.match_gender = liste_dep[num_match].gender
-        this.match_date_birth = liste_dep[num_match].date_birth
-        this.match_place_birth = liste_dep[num_match].place_birth
-        this.match_eurodep_depuis = liste_dep[num_match].eurodep_depuis
+        this.reader = []
+        this.reader.name = this.answers[1]
+        this.reader.gender = this.answers[0]
+        this.reader.circo = this.answers[2]
+        this.reader.party = this.answers[4]
+        this.reader.date_birth = this.answers[3]
+        this.match = liste_dep[num_match]
       }
     },
     submitText: function submitText () {
       var answer = this.$refs.textInput.value;
       if (answer != ""){
-      this.answers.push(answer)
-      this.current++   
+        this.answers.push(answer)
+        this.current++   
     }
     },
     submitNumber: function submitNumber() {
       var answer = this.$refs.nbInput.value;
-      if (answer != "" && answer > 1900){
+      if (answer != "" && answer > 1900 && answer < 2019){
         this.answers.push(answer)
         this.current++   
       }
