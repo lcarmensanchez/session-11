@@ -65,7 +65,12 @@ input {
 .question .choice, .question .next, .start {
     margin-top:20px;
     background-color: #e7e7e7; 
-    color: #222731; 
+    color: #222731;
+}
+
+button, input  {
+    white-space: normal !important;
+    word-wrap: break-word;
 }
 
 .toCenter {

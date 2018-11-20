@@ -26,7 +26,7 @@ var quiz = [
       question: "Quelles sont vos affinités politiques ?",
       type: "choice",
       choices: ["La France Insoumise / Parti communiste", "Europe Écologie / Génération.s",
-      "Parti socialiste / Parti radical", "UDI / Modem / En Marche ", "Les Républicains et apparentés", 
+      "Parti socialiste / Parti radical", "UDI / Modem / En Marche ", "Les Républicains", 
       "Rassemblement national / Les Patriotes", 
       "Indépendant / Autre"],
     }

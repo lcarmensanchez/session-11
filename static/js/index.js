@@ -59,13 +59,17 @@ var app = new Vue({
     },
     submitText: function submitText () {
       var answer = this.$refs.textInput.value;
+      if (answer != ""){
       this.answers.push(answer)
-      this.current++ 
+      this.current++   
+    }
     },
     submitNumber: function submitNumber() {
       var answer = this.$refs.nbInput.value;
-      this.answers.push(answer)
-      this.current++
+      if (answer != "" && answer > 1900){
+        this.answers.push(answer)
+        this.current++   
+      }
     }
   }
 });

@@ -13,7 +13,7 @@ function replaceByGroup(choice){
         nbGroup = 3;
     else if (choice == "UDI / Modem / En Marche")
         nbGroup = 4;
-    else if (choice == "Les Républicains et apparentés")
+    else if (choice == "Les Républicains")
         nbGroup = 5;
     else if (choice == "Rassemblement national / Les Patriotes")
         nbGroup =  6;
@@ -61,7 +61,7 @@ function replaceByGroup(choice){
         same_birthdate.push(liste_dep[i].name);
         result = result + 1000;
       }
-      else {
+      else {        // birthdate.push([liste_dep[i].name, difference, Number(liste_dep[i].date_birth.slice(-4))]);
         difference = Math.abs(Number(answers[3]) - Number(liste_dep[i].date_birth.slice(-4)))
         if (difference < similar_birthdate[0])
             similar_birthdate = [difference, liste_dep[i].name, liste_dep[i].date_birth, liste_dep[i].gender]
