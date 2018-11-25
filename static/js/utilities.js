@@ -74,7 +74,6 @@ function replaceByGroup(choice){
         result = result + 10000;
       }
       else if (Math.abs(replaceByGroup(answers[4]) - liste_dep[i].national_party_grp) == 1) {
-        same_party.push(liste_dep[i].name);
         result = result + 6000;
       }
       if (result > mostImportantScore[1])
